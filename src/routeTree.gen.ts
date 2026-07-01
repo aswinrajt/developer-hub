@@ -17,6 +17,7 @@ import { Route as CoverLettersRouteImport } from './routes/cover-letters'
 import { Route as CompaniesRouteImport } from './routes/companies'
 import { Route as CodingRouteImport } from './routes/coding'
 import { Route as ApplicationsRouteImport } from './routes/applications'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResumesIdRouteImport } from './routes/resumes.$id'
 import { Route as CoverLettersIdRouteImport } from './routes/cover-letters.$id'
@@ -61,6 +62,11 @@ const ApplicationsRoute = ApplicationsRouteImport.update({
   path: '/applications',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -79,6 +85,7 @@ const CoverLettersIdRoute = CoverLettersIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
   '/applications': typeof ApplicationsRoute
   '/coding': typeof CodingRoute
   '/companies': typeof CompaniesRoute
@@ -92,6 +99,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
   '/applications': typeof ApplicationsRoute
   '/coding': typeof CodingRoute
   '/companies': typeof CompaniesRoute
@@ -106,6 +114,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
   '/applications': typeof ApplicationsRoute
   '/coding': typeof CodingRoute
   '/companies': typeof CompaniesRoute
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/analytics'
     | '/applications'
     | '/coding'
     | '/companies'
@@ -134,6 +144,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/analytics'
     | '/applications'
     | '/coding'
     | '/companies'
@@ -147,6 +158,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/analytics'
     | '/applications'
     | '/coding'
     | '/companies'
@@ -161,6 +173,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
   ApplicationsRoute: typeof ApplicationsRoute
   CodingRoute: typeof CodingRoute
   CompaniesRoute: typeof CompaniesRoute
@@ -229,6 +242,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApplicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -278,6 +298,7 @@ const ResumesRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
   ApplicationsRoute: ApplicationsRoute,
   CodingRoute: CodingRoute,
   CompaniesRoute: CompaniesRoute,
