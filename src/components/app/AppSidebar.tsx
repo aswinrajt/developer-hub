@@ -190,7 +190,7 @@ export function AppSidebar({
 
       {/* Footer */}
       <div className="border-t border-white/5 p-2">
-        <button className="flex w-full items-center gap-3 rounded-lg p-2 text-left transition-colors hover:bg-white/5">
+        <button suppressHydrationWarning className="press flex w-full items-center gap-3 rounded-lg p-2 text-left transition-colors hover:bg-white/5">
           <div className="grid size-8 shrink-0 place-items-center rounded-full bg-gradient-brand text-[12px] font-semibold text-background">
             AR
           </div>
