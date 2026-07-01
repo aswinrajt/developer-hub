@@ -76,11 +76,18 @@
   --destructive: oklch(0.65 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
 
+  --success: oklch(0.75 0.16 155);
+  --success-foreground: oklch(0.16 0.012 264);
+  --warning: oklch(0.82 0.15 80);
+  --warning-foreground: oklch(0.16 0.012 264);
+  --info: oklch(0.72 0.16 250);
+  --info-foreground: oklch(0.16 0.012 264);
+
   --border: oklch(0.28 0.018 264);
   --input: oklch(0.28 0.018 264);
   --ring: oklch(0.68 0.15 265);
 
-  /* Brand — violet/indigo... actually use a distinctive teal-cyan to avoid AI purple slop */
+  /* Brand — teal/cyan to indigo, developer-neutral, not AI purple */
   --brand: oklch(0.78 0.14 195);
   --brand-foreground: oklch(0.16 0.012 264);
   --brand-glow: oklch(0.82 0.16 210);
