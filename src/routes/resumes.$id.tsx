@@ -168,7 +168,7 @@ export const Route = createFileRoute("/resumes/$id")({
 });
 
 function ResumeDetailPage() {
-  const { detail: r } = Route.useLoaderData();
+  const { detail: r } = Route.useLoaderData() as { detail: ResumeDetail };
 
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-background">
