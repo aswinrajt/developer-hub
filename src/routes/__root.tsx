@@ -77,16 +77,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "DevTrack — The career OS for software developers" },
+      {
+        name: "description",
+        content:
+          "DevTrack is the career operating system for developers. Track applications, recruiters, interviews, resumes and coding practice in one focused workspace.",
+      },
+      { property: "og:title", content: "DevTrack — The career OS for software developers" },
+      {
+        property: "og:description",
+        content:
+          "Everything you need to run your job search like a senior engineer. Applications, recruiters, resumes, interviews and analytics — in one place.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      {
+        rel: "preconnect",
+        href: "https://rsms.me/",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://rsms.me/inter/inter.css",
+      },
       {
         rel: "stylesheet",
         href: appCss,
