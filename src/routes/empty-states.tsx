@@ -42,9 +42,7 @@ function EmptyStatesGallery() {
     <div className="flex h-screen w-full overflow-hidden bg-background text-foreground">
       <AppSidebar active="Design" />
       <div className="flex flex-1 flex-col overflow-hidden">
-        <TopNav
-          breadcrumb={[{ label: "Design" }, { label: "Empty states" }]}
-        />
+        <TopNav />
         <main className="flex-1 overflow-y-auto">
           <div className="mx-auto w-full max-w-6xl px-8 py-10">
             <header className="mb-10">
