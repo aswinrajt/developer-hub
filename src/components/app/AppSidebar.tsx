@@ -27,7 +27,7 @@ const nav = [
     label: "Overview",
     items: [
       { icon: LayoutDashboard, name: "Dashboard", href: "/dashboard", badge: null },
-      { icon: BarChart3, name: "Analytics", href: "#analytics", badge: null },
+      { icon: BarChart3, name: "Analytics", href: "/analytics", badge: null },
     ],
   },
   {
