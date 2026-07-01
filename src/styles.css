@@ -35,8 +35,15 @@
   --color-brand-glow: var(--brand-glow);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 :root {
@@ -69,11 +76,18 @@
   --destructive: oklch(0.65 0.22 27);
   --destructive-foreground: oklch(0.98 0 0);
 
+  --success: oklch(0.75 0.16 155);
+  --success-foreground: oklch(0.16 0.012 264);
+  --warning: oklch(0.82 0.15 80);
+  --warning-foreground: oklch(0.16 0.012 264);
+  --info: oklch(0.72 0.16 250);
+  --info-foreground: oklch(0.16 0.012 264);
+
   --border: oklch(0.28 0.018 264);
   --input: oklch(0.28 0.018 264);
   --ring: oklch(0.68 0.15 265);
 
-  /* Brand — violet/indigo... actually use a distinctive teal-cyan to avoid AI purple slop */
+  /* Brand — teal/cyan to indigo, developer-neutral, not AI purple */
   --brand: oklch(0.78 0.14 195);
   --brand-foreground: oklch(0.16 0.012 264);
   --brand-glow: oklch(0.82 0.16 210);
@@ -169,3 +183,65 @@ html {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
+/* Typography scale — use these instead of ad-hoc font sizes. */
+@utility text-hero {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+@utility text-page {
+  font-size: clamp(2.25rem, 3.5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+@utility text-section {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+@utility text-card-title {
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+@utility text-subtitle {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-muted-foreground);
+  font-weight: 400;
+}
+@utility text-body {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+@utility text-caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--color-muted-foreground);
+  font-weight: 500;
+}
+@utility text-eyebrow {
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  font-weight: 600;
+}
+@utility text-mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+}
+
+@utility ring-brand {
+  --tw-ring-color: color-mix(in oklab, var(--color-brand) 60%, transparent);
+}
+
