@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ResumesRouteImport } from './routes/resumes'
+import { Route as InterviewsRouteImport } from './routes/interviews'
 import { Route as DesignRouteImport } from './routes/design'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CoverLettersRouteImport } from './routes/cover-letters'
@@ -22,6 +23,11 @@ import { Route as CoverLettersIdRouteImport } from './routes/cover-letters.$id'
 const ResumesRoute = ResumesRouteImport.update({
   id: '/resumes',
   path: '/resumes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InterviewsRoute = InterviewsRouteImport.update({
+  id: '/interviews',
+  path: '/interviews',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DesignRoute = DesignRouteImport.update({
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/cover-letters': typeof CoverLettersRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/design': typeof DesignRoute
+  '/interviews': typeof InterviewsRoute
   '/resumes': typeof ResumesRouteWithChildren
   '/cover-letters/$id': typeof CoverLettersIdRoute
   '/resumes/$id': typeof ResumesIdRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/cover-letters': typeof CoverLettersRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/design': typeof DesignRoute
+  '/interviews': typeof InterviewsRoute
   '/resumes': typeof ResumesRouteWithChildren
   '/cover-letters/$id': typeof CoverLettersIdRoute
   '/resumes/$id': typeof ResumesIdRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/cover-letters': typeof CoverLettersRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/design': typeof DesignRoute
+  '/interviews': typeof InterviewsRoute
   '/resumes': typeof ResumesRouteWithChildren
   '/cover-letters/$id': typeof CoverLettersIdRoute
   '/resumes/$id': typeof ResumesIdRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/cover-letters'
     | '/dashboard'
     | '/design'
+    | '/interviews'
     | '/resumes'
     | '/cover-letters/$id'
     | '/resumes/$id'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/cover-letters'
     | '/dashboard'
     | '/design'
+    | '/interviews'
     | '/resumes'
     | '/cover-letters/$id'
     | '/resumes/$id'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/cover-letters'
     | '/dashboard'
     | '/design'
+    | '/interviews'
     | '/resumes'
     | '/cover-letters/$id'
     | '/resumes/$id'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   CoverLettersRoute: typeof CoverLettersRouteWithChildren
   DashboardRoute: typeof DashboardRoute
   DesignRoute: typeof DesignRoute
+  InterviewsRoute: typeof InterviewsRoute
   ResumesRoute: typeof ResumesRouteWithChildren
 }
 
@@ -152,6 +165,13 @@ declare module '@tanstack/react-router' {
       path: '/resumes'
       fullPath: '/resumes'
       preLoaderRoute: typeof ResumesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interviews': {
+      id: '/interviews'
+      path: '/interviews'
+      fullPath: '/interviews'
+      preLoaderRoute: typeof InterviewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/design': {
@@ -243,8 +263,19 @@ const rootRouteChildren: RootRouteChildren = {
   CoverLettersRoute: CoverLettersRouteWithChildren,
   DashboardRoute: DashboardRoute,
   DesignRoute: DesignRoute,
+  InterviewsRoute: InterviewsRoute,
   ResumesRoute: ResumesRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
