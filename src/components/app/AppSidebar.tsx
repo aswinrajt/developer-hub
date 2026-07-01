@@ -50,7 +50,7 @@ const nav = [
   {
     label: "Growth",
     items: [
-      { icon: Code2, name: "Coding Practice", href: "#code", badge: "128" },
+      { icon: Code2, name: "Coding Practice", href: "/coding", badge: "128" },
       { icon: Target, name: "Career Goals", href: "#goals", badge: "3" },
     ],
   },

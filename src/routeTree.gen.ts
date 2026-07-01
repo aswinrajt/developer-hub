@@ -15,6 +15,7 @@ import { Route as DesignRouteImport } from './routes/design'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CoverLettersRouteImport } from './routes/cover-letters'
 import { Route as CompaniesRouteImport } from './routes/companies'
+import { Route as CodingRouteImport } from './routes/coding'
 import { Route as ApplicationsRouteImport } from './routes/applications'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResumesIdRouteImport } from './routes/resumes.$id'
@@ -50,6 +51,11 @@ const CompaniesRoute = CompaniesRouteImport.update({
   path: '/companies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CodingRoute = CodingRouteImport.update({
+  id: '/coding',
+  path: '/coding',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApplicationsRoute = ApplicationsRouteImport.update({
   id: '/applications',
   path: '/applications',
@@ -74,6 +80,7 @@ const CoverLettersIdRoute = CoverLettersIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/applications': typeof ApplicationsRoute
+  '/coding': typeof CodingRoute
   '/companies': typeof CompaniesRoute
   '/cover-letters': typeof CoverLettersRouteWithChildren
   '/dashboard': typeof DashboardRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/applications': typeof ApplicationsRoute
+  '/coding': typeof CodingRoute
   '/companies': typeof CompaniesRoute
   '/cover-letters': typeof CoverLettersRouteWithChildren
   '/dashboard': typeof DashboardRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/applications': typeof ApplicationsRoute
+  '/coding': typeof CodingRoute
   '/companies': typeof CompaniesRoute
   '/cover-letters': typeof CoverLettersRouteWithChildren
   '/dashboard': typeof DashboardRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/applications'
+    | '/coding'
     | '/companies'
     | '/cover-letters'
     | '/dashboard'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/applications'
+    | '/coding'
     | '/companies'
     | '/cover-letters'
     | '/dashboard'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/applications'
+    | '/coding'
     | '/companies'
     | '/cover-letters'
     | '/dashboard'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApplicationsRoute: typeof ApplicationsRoute
+  CodingRoute: typeof CodingRoute
   CompaniesRoute: typeof CompaniesRoute
   CoverLettersRoute: typeof CoverLettersRouteWithChildren
   DashboardRoute: typeof DashboardRoute
@@ -200,6 +213,13 @@ declare module '@tanstack/react-router' {
       path: '/companies'
       fullPath: '/companies'
       preLoaderRoute: typeof CompaniesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coding': {
+      id: '/coding'
+      path: '/coding'
+      fullPath: '/coding'
+      preLoaderRoute: typeof CodingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/applications': {
@@ -259,6 +279,7 @@ const ResumesRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApplicationsRoute: ApplicationsRoute,
+  CodingRoute: CodingRoute,
   CompaniesRoute: CompaniesRoute,
   CoverLettersRoute: CoverLettersRouteWithChildren,
   DashboardRoute: DashboardRoute,
