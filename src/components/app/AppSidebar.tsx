@@ -43,7 +43,7 @@ const nav = [
     label: "Materials",
     items: [
       { icon: FileText, name: "Resumes", href: "/resumes", badge: "6" },
-      { icon: Files, name: "Cover Letters", href: "#cl", badge: "9" },
+      { icon: Files, name: "Cover Letters", href: "/cover-letters", badge: "9" },
       { icon: FolderOpen, name: "Documents", href: "#doc", badge: null },
     ],
   },
