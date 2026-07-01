@@ -409,9 +409,8 @@ function CodingPage() {
     <div className="flex h-screen overflow-hidden bg-background text-foreground">
       <AppSidebar active="Coding Practice" />
       <div className="flex min-w-0 flex-1 flex-col">
-        <TopNav
-          breadcrumbs={[{ label: "Home", href: "/dashboard" }, { label: "Coding Practice" }]}
-        />
+        <TopNav />
+
 
         <main className="flex-1 overflow-y-auto">
           <div className="mx-auto max-w-[1400px] px-6 py-6 lg:px-8">
