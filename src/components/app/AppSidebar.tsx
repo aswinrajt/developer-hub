@@ -208,12 +208,13 @@ export function AppSidebar({
                 >
                   <Bell className="size-3.5" />
                 </button>
-                <button
+                <a
+                  href="/settings"
                   className="grid size-7 place-items-center rounded-md text-muted-foreground hover:bg-white/10 hover:text-foreground"
                   aria-label="Settings"
                 >
                   <Settings className="size-3.5" />
-                </button>
+                </a>
               </div>
             </>
           )}

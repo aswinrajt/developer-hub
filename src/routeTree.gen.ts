@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ResumesRouteImport } from './routes/resumes'
 import { Route as InterviewsRouteImport } from './routes/interviews'
 import { Route as DesignRouteImport } from './routes/design'
@@ -22,6 +23,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResumesIdRouteImport } from './routes/resumes.$id'
 import { Route as CoverLettersIdRouteImport } from './routes/cover-letters.$id'
 
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResumesRoute = ResumesRouteImport.update({
   id: '/resumes',
   path: '/resumes',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/design': typeof DesignRoute
   '/interviews': typeof InterviewsRoute
   '/resumes': typeof ResumesRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/cover-letters/$id': typeof CoverLettersIdRoute
   '/resumes/$id': typeof ResumesIdRoute
 }
@@ -108,6 +115,7 @@ export interface FileRoutesByTo {
   '/design': typeof DesignRoute
   '/interviews': typeof InterviewsRoute
   '/resumes': typeof ResumesRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/cover-letters/$id': typeof CoverLettersIdRoute
   '/resumes/$id': typeof ResumesIdRoute
 }
@@ -123,6 +131,7 @@ export interface FileRoutesById {
   '/design': typeof DesignRoute
   '/interviews': typeof InterviewsRoute
   '/resumes': typeof ResumesRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/cover-letters/$id': typeof CoverLettersIdRoute
   '/resumes/$id': typeof ResumesIdRoute
 }
@@ -139,6 +148,7 @@ export interface FileRouteTypes {
     | '/design'
     | '/interviews'
     | '/resumes'
+    | '/settings'
     | '/cover-letters/$id'
     | '/resumes/$id'
   fileRoutesByTo: FileRoutesByTo
@@ -153,6 +163,7 @@ export interface FileRouteTypes {
     | '/design'
     | '/interviews'
     | '/resumes'
+    | '/settings'
     | '/cover-letters/$id'
     | '/resumes/$id'
   id:
@@ -167,6 +178,7 @@ export interface FileRouteTypes {
     | '/design'
     | '/interviews'
     | '/resumes'
+    | '/settings'
     | '/cover-letters/$id'
     | '/resumes/$id'
   fileRoutesById: FileRoutesById
@@ -182,10 +194,18 @@ export interface RootRouteChildren {
   DesignRoute: typeof DesignRoute
   InterviewsRoute: typeof InterviewsRoute
   ResumesRoute: typeof ResumesRouteWithChildren
+  SettingsRoute: typeof SettingsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/resumes': {
       id: '/resumes'
       path: '/resumes'
@@ -307,6 +327,7 @@ const rootRouteChildren: RootRouteChildren = {
   DesignRoute: DesignRoute,
   InterviewsRoute: InterviewsRoute,
   ResumesRoute: ResumesRouteWithChildren,
+  SettingsRoute: SettingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
