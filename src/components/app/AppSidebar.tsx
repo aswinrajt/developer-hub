@@ -223,7 +223,9 @@ export function AppSidebar({
 
         <button
           onClick={() => setCollapsed((v) => !v)}
-          className="mt-1 flex w-full items-center gap-3 rounded-lg p-2 text-[12px] text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
+          suppressHydrationWarning
+          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          className="press mt-1 flex w-full items-center gap-3 rounded-lg p-2 text-[12px] text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground"
         >
           {collapsed ? (
             <PanelLeftOpen className="size-4" />
