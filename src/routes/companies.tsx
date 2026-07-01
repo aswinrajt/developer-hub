@@ -879,7 +879,7 @@ function CompanyCard({
 
       <div className="mt-4 flex flex-wrap gap-1.5">
         {c.tags.slice(0, 3).map((t) => (
-          <Badge key={t} tone="neutral">
+          <Badge key={t} tone="muted">
             {t}
           </Badge>
         ))}
@@ -1141,7 +1141,7 @@ function CompanyDrawer({
                   {company.status}
                 </span>
                 {company.tags.slice(0, 4).map((t) => (
-                  <Badge key={t} tone="neutral">
+                  <Badge key={t} tone="muted">
                     {t}
                   </Badge>
                 ))}
@@ -1287,7 +1287,7 @@ function OverviewTab({ c }: { c: Company }) {
       <Section title="Tags">
         <div className="flex flex-wrap gap-1.5">
           {c.tags.map((t) => (
-            <Badge key={t} tone="neutral">
+            <Badge key={t} tone="muted">
               {t}
             </Badge>
           ))}
