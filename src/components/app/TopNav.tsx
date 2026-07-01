@@ -149,6 +149,9 @@ export function TopNav({ className }: { className?: string }) {
           </Popover>
         </div>
 
+        {/* Theme toggle */}
+        <ThemeToggle />
+
         {/* Command palette hint */}
         <button
           className="hidden size-8 place-items-center rounded-full border border-white/10 text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground md:grid"
