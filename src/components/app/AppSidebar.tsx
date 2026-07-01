@@ -36,7 +36,7 @@ const nav = [
       { icon: Briefcase, name: "Applications", href: "/applications", badge: "47" },
       { icon: Users, name: "Recruiters", href: "#rec", badge: "12" },
       { icon: Building2, name: "Companies", href: "/companies", badge: "84" },
-      { icon: CalendarClock, name: "Interviews", href: "#int", badge: "4" },
+      { icon: CalendarClock, name: "Interviews", href: "/interviews", badge: "4" },
     ],
   },
   {
