@@ -26,23 +26,23 @@ const nav = [
   {
     label: "Overview",
     items: [
-      { icon: LayoutDashboard, name: "Dashboard", href: "#dashboard", badge: null },
+      { icon: LayoutDashboard, name: "Dashboard", href: "/dashboard", badge: null },
       { icon: BarChart3, name: "Analytics", href: "#analytics", badge: null },
     ],
   },
   {
     label: "Pipeline",
     items: [
-      { icon: Briefcase, name: "Applications", href: "#apps", badge: "47" },
+      { icon: Briefcase, name: "Applications", href: "/applications", badge: "47" },
       { icon: Users, name: "Recruiters", href: "#rec", badge: "12" },
-      { icon: Building2, name: "Companies", href: "#co", badge: "84" },
+      { icon: Building2, name: "Companies", href: "/companies", badge: "84" },
       { icon: CalendarClock, name: "Interviews", href: "#int", badge: "4" },
     ],
   },
   {
     label: "Materials",
     items: [
-      { icon: FileText, name: "Resumes", href: "#res", badge: "6" },
+      { icon: FileText, name: "Resumes", href: "/resumes", badge: "6" },
       { icon: Files, name: "Cover Letters", href: "#cl", badge: "9" },
       { icon: FolderOpen, name: "Documents", href: "#doc", badge: null },
     ],
