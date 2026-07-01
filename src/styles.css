@@ -183,3 +183,65 @@ html {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
+/* Typography scale — use these instead of ad-hoc font sizes. */
+@utility text-hero {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+@utility text-page {
+  font-size: clamp(2.25rem, 3.5vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+@utility text-section {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+@utility text-card-title {
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+@utility text-subtitle {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-muted-foreground);
+  font-weight: 400;
+}
+@utility text-body {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+@utility text-caption {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  color: var(--color-muted-foreground);
+  font-weight: 500;
+}
+@utility text-eyebrow {
+  font-size: 0.6875rem;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  font-weight: 600;
+}
+@utility text-mono {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: -0.01em;
+}
+
+@utility ring-brand {
+  --tw-ring-color: color-mix(in oklab, var(--color-brand) 60%, transparent);
+}
+
