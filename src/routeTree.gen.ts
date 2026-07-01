@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as ResumesRouteImport } from './routes/resumes'
 import { Route as InterviewsRouteImport } from './routes/interviews'
+import { Route as EmptyStatesRouteImport } from './routes/empty-states'
 import { Route as DesignRouteImport } from './routes/design'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CoverLettersRouteImport } from './routes/cover-letters'
@@ -36,6 +37,11 @@ const ResumesRoute = ResumesRouteImport.update({
 const InterviewsRoute = InterviewsRouteImport.update({
   id: '/interviews',
   path: '/interviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmptyStatesRoute = EmptyStatesRouteImport.update({
+  id: '/empty-states',
+  path: '/empty-states',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DesignRoute = DesignRouteImport.update({
@@ -98,6 +104,7 @@ export interface FileRoutesByFullPath {
   '/cover-letters': typeof CoverLettersRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/design': typeof DesignRoute
+  '/empty-states': typeof EmptyStatesRoute
   '/interviews': typeof InterviewsRoute
   '/resumes': typeof ResumesRouteWithChildren
   '/settings': typeof SettingsRoute
@@ -113,6 +120,7 @@ export interface FileRoutesByTo {
   '/cover-letters': typeof CoverLettersRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/design': typeof DesignRoute
+  '/empty-states': typeof EmptyStatesRoute
   '/interviews': typeof InterviewsRoute
   '/resumes': typeof ResumesRouteWithChildren
   '/settings': typeof SettingsRoute
@@ -129,6 +137,7 @@ export interface FileRoutesById {
   '/cover-letters': typeof CoverLettersRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/design': typeof DesignRoute
+  '/empty-states': typeof EmptyStatesRoute
   '/interviews': typeof InterviewsRoute
   '/resumes': typeof ResumesRouteWithChildren
   '/settings': typeof SettingsRoute
@@ -146,6 +155,7 @@ export interface FileRouteTypes {
     | '/cover-letters'
     | '/dashboard'
     | '/design'
+    | '/empty-states'
     | '/interviews'
     | '/resumes'
     | '/settings'
@@ -161,6 +171,7 @@ export interface FileRouteTypes {
     | '/cover-letters'
     | '/dashboard'
     | '/design'
+    | '/empty-states'
     | '/interviews'
     | '/resumes'
     | '/settings'
@@ -176,6 +187,7 @@ export interface FileRouteTypes {
     | '/cover-letters'
     | '/dashboard'
     | '/design'
+    | '/empty-states'
     | '/interviews'
     | '/resumes'
     | '/settings'
@@ -192,6 +204,7 @@ export interface RootRouteChildren {
   CoverLettersRoute: typeof CoverLettersRouteWithChildren
   DashboardRoute: typeof DashboardRoute
   DesignRoute: typeof DesignRoute
+  EmptyStatesRoute: typeof EmptyStatesRoute
   InterviewsRoute: typeof InterviewsRoute
   ResumesRoute: typeof ResumesRouteWithChildren
   SettingsRoute: typeof SettingsRoute
@@ -218,6 +231,13 @@ declare module '@tanstack/react-router' {
       path: '/interviews'
       fullPath: '/interviews'
       preLoaderRoute: typeof InterviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/empty-states': {
+      id: '/empty-states'
+      path: '/empty-states'
+      fullPath: '/empty-states'
+      preLoaderRoute: typeof EmptyStatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/design': {
@@ -325,6 +345,7 @@ const rootRouteChildren: RootRouteChildren = {
   CoverLettersRoute: CoverLettersRouteWithChildren,
   DashboardRoute: DashboardRoute,
   DesignRoute: DesignRoute,
+  EmptyStatesRoute: EmptyStatesRoute,
   InterviewsRoute: InterviewsRoute,
   ResumesRoute: ResumesRouteWithChildren,
   SettingsRoute: SettingsRoute,
