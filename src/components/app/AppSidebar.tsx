@@ -78,7 +78,8 @@ export function AppSidebar({
       <div className="relative border-b border-white/5 p-3">
         <button
           onClick={() => setWsOpen((v) => !v)}
-          className="group flex w-full items-center gap-3 rounded-xl p-2 text-left transition-colors hover:bg-white/5"
+          suppressHydrationWarning
+          className="press group flex w-full items-center gap-3 rounded-xl p-2 text-left transition-colors hover:bg-white/5"
         >
           <div className="relative grid size-9 shrink-0 place-items-center rounded-lg bg-gradient-brand shadow-glow">
             <div className="absolute inset-[2px] rounded-[6px] bg-background/70" />
