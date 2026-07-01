@@ -16,6 +16,7 @@ import {
   Keyboard,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function TopNav({ className }: { className?: string }) {
   const [addOpen, setAddOpen] = useState(false);
@@ -147,6 +148,9 @@ export function TopNav({ className }: { className?: string }) {
             </div>
           </Popover>
         </div>
+
+        {/* Theme toggle */}
+        <ThemeToggle />
 
         {/* Command palette hint */}
         <button
